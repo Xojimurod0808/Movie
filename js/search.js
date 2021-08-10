@@ -40,28 +40,31 @@ function render(arrFilm, element) {
         let newHeading = CreateDom('h2')
         let newTime = CreateDom('time')
         let newGenreLi = CreateDom('p')
-        
+        let elText = CreateDom("p")
         
         //creating attributes 
         newLi.setAttribute('class','movie__item' )
         newImg.setAttribute('src', film.poster)
-        newImg.setAttribute('width','150' )
-        newImg.setAttribute('height','200')
+        newImg.setAttribute('width','220')
+        newImg.setAttribute('height','300')
         newHeading.setAttribute('class', 'movie__item-title')
         newTime.setAttribute('datetime', normalizeDate(film.release_date))
         newGenreLi.setAttribute('class', 'movie__genre')
+        elText.setAttribute("class", "text")
         
         
         //elements content
         newHeading.textContent = film.title
         newTime.textContent = normalizeDate(film.release_date)
         newGenreLi.textContent = film.genres
+        elText.textContent = film.overview
         
         //appendChilds
         newLi.appendChild(newImg)
         newLi.appendChild(newHeading)
         newLi.appendChild(newTime)
         newLi.appendChild(newGenreLi)
+        newLi.appendChild(elText)
         movieList.appendChild(newLi)
     });
 }
