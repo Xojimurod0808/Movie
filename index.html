@@ -7,29 +7,47 @@
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
 </head>
-  
-  <section class="movie">
-    <div class="container">
-      <h1 class="movie__title">Movies</h1>
-      <form class="form" id="form">
-        <label>
-          <input class="movie__search" placeholder="search..." id="search_movie" type="text" name="seach_movie">
-        </label>
 
-        
-        <label>
-          <select class="movie__genre" name="select" id="select">
-            <option value="All">All</option>
-          </select>
-        </label>
-        <button class="movie__btn" type="submit">Search</button>
-      </form>
-      
-      <ul class="movie__list"></ul>
+<section class="movie">
+  <div class="container">
+    <div class="logo">
+      <h1 class="title"><span>Uz</span>movie</h1>
+      <img class="logo__img" src="./movie.png" alt="img" width="50px" height="50px">
     </div>
-  </section>
-  <script src="./js/films.js"></script>
-  <script src="./js/utils.js"></script>
-  <script src="./js/search.js"></script>
+    <form class="form" id="form">
+      <label>
+        <input class="movie__search" placeholder="search..." id="search_movie" type="text" name="seach_movie" autocomplete="off">
+      </label>
+      <label>
+        <select class="movie__genre" name="select" id="select">
+          <option value="All">All</option>
+        </select>
+      </label>
+      <label>
+        <select class="movie__filter" name="select" id="select">
+          <option value="a__z">a__z</option>
+          <option value="z__a">z__a</option>
+        </select>
+      </label>
+      <button class="movie__btn" type="submit">Search</button>
+    </form>
+    
+    <ul class="movie__list"></ul>
+  </div>
+</section>
+
+<section class="modal">
+  <div class="content">
+    <h2 class="movie__item-title">Shazam</h2>
+    <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quae laudantium qui doloremque quaerat labore, quia temporibus rem dicta facere in animi nam totam quod quibusdam voluptas obcaecati soluta dolor?</p>
+    <p class="movie__genres">wrg, jhjiuh, hguft</p>
+    <time class="release_date">3225415</time>
+    <button class="modal__btn">&times;</button>
+  </div>
+</section>
+
+<script src="./js/films.js"></script>
+<script src="./js/utils.js"></script>
+<script src="./js/search.js"></script>
 </body>
 </html>

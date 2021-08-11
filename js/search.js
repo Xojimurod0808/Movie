@@ -3,6 +3,9 @@ let movieList = MakeElem('.movie__list')
 let movieGenreList = MakeElem('.movie__genre-list')
 let movieGenre = MakeElem('.movie__genre')
 let movieSearch = MakeElem('.movie__search')
+let movieSelect = MakeElem('.select')
+let elModal = MakeElem(".modal")
+let modalBtn = MakeElem(".modal__btn")
 
 
 
@@ -37,35 +40,44 @@ function render(arrFilm, element) {
         //creating elements
         let newLi = CreateDom('li')
         let newImg = CreateDom('img')
-        let newHeading = CreateDom('h2')
-        let newTime = CreateDom('time')
-        let newGenreLi = CreateDom('p')
-        let elText = CreateDom("p")
+        let elBtn = CreateDom("button")
         
         //creating attributes 
         newLi.setAttribute('class','movie__item' )
         newImg.setAttribute('src', film.poster)
         newImg.setAttribute('width','220')
         newImg.setAttribute('height','300')
-        newHeading.setAttribute('class', 'movie__item-title')
-        newTime.setAttribute('datetime', normalizeDate(film.release_date))
-        newGenreLi.setAttribute('class', 'movie__genre')
-        elText.setAttribute("class", "text")
+        elBtn.setAttribute("class", "btn")
         
         
         //elements content
-        newHeading.textContent = film.title
-        newTime.textContent = normalizeDate(film.release_date)
-        newGenreLi.textContent = film.genres
-        elText.textContent = film.overview
+        elBtn.textContent = "More"
+        elBtn.dataset.uuid = film.id
         
         //appendChilds
         newLi.appendChild(newImg)
-        newLi.appendChild(newHeading)
-        newLi.appendChild(newTime)
-        newLi.appendChild(newGenreLi)
-        newLi.appendChild(elText)
+        newLi.appendChild(elBtn)
         movieList.appendChild(newLi)
+
+        elBtn.addEventListener("click", (evn) =>{
+
+            let filmID = evn.target.dataset.uuid
+            let x = arrFilm.find((e) => filmID == e.id)
+            let elText = MakeElem(".text")
+            let movieGenres = MakeElem(".movie__genres")
+            let movieItemTitle = MakeElem(".movie__item-title")
+            let movietime = MakeElem(".release_date")
+
+
+            movieItemTitle.textContent = x.title;
+            elText.textContent = x.overview;
+            movieGenres.textContent = x.genres
+            movietime.textContent = normalizeDate(x.release_date)
+            elModal.classList.add("modal--active")
+        })
+        modalBtn.addEventListener("click", () =>{
+            elModal.classList.remove("modal--active")
+        })
     });
 }
 
