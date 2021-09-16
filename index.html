@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>UZmovi.com</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <section class="movie">
   <div class="container">
     <div class="logo">
-      <h1 class="title"><span>Uz</span>movie</h1>
+      <a href="./index.html"><h1 class="title"><span>Uz</span>movie</h1></a>
       <img class="logo__img" src="./movie.png" alt="img" width="50px" height="50px">
     </div>
     <form class="form" id="form">
-      <label>
+      <label class = "label">
         <input class="movie__search" placeholder="search..." id="search_movie" type="text" name="seach_movie" autocomplete="off">
+        <button id="vois" class="fas fa-microphone"></button>
       </label>
       <label>
         <select class="movie__genre" name="select" id="select">

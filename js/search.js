@@ -84,7 +84,7 @@ function render(arrFilm, element) {
 render(films, movieList)
 
 
-elForm.addEventListener('submit',(e)  =>{
+elForm.addEventListener('keyup',(e)  =>{
     e.preventDefault()
     
     let selectGenres = movieGenre.value.trim()
@@ -108,4 +108,29 @@ elForm.addEventListener('submit',(e)  =>{
         })
     }
     render(foundFilms,movieList )
+})
+
+let rec = new webkitSpeechRecognition();
+
+vois.addEventListener('click', function(e){
+    e.preventDefault();
+
+    rec.start()
+
+    rec.lang = 'en-US'
+
+rec.onerror = function(){
+    console.log("error")
+}
+
+rec.onend = function(){
+    console.log('aloqa tugadi')
+}
+
+rec.onresult = function(e){
+    
+
+    movieSearch.value = e.results[0][0].transcript;
+
+}
 })
